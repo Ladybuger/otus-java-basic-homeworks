@@ -16,7 +16,7 @@ public class MainApplication {
         };
 
         for (int i = 0; i < users.length; i++) {
-            if (2024 - users[i].birthYear > 40) {
+            if (2024 - users[i].getBirthYear() > 40) {
                 users[i].outputUserInfo();
                 System.out.println();
             }
@@ -24,19 +24,21 @@ public class MainApplication {
 
         //Задача с с коробкой
 
-        Box box = new Box(2,3,4, "Red", "Cucumber");
+        Box box = new Box(2,3,4, "Red", true);
 
         box.info();
-        box.color = "Yellow";
+        System.out.println();
+        box.repaint("Yellow");
         System.out.println();
         box.info();
         System.out.println();
-        box.repaint(box.color);
 
         box.open();
-        box.put("Apple");
-        box.get("Apple");
+        box.put();
         box.close();
+        box.put();
+        box.open();
+        box.get();
 
     }
 }

@@ -1,11 +1,15 @@
 package ru.otus.java.basic.homeworks.homework4;
 
 public class User {
-    String surname;
-    String name;
-    String patronymic;
-    int birthYear;
-    String email;
+    private String surname;
+    private String name;
+    private String patronymic;
+    private int birthYear;
+    private String email;
+
+    public int getBirthYear() {
+        return birthYear;
+    }
 
     public User (String surname, String name, String patronymic, int birthYear, String email) {
         this.surname = surname;
