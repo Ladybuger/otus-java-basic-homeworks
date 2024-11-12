@@ -9,24 +9,24 @@ public class Cat {
         return name;
     }
 
-    public int getAppetite() {
-        return appetite;
-    }
-
-    public boolean isFull() {
-        return isFull;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getAppetite() {
+        return appetite;
     }
 
     public void setAppetite(int appetite) {
         this.appetite = appetite;
     }
 
-    public void setFull(boolean full) {
-        isFull = full;
+    public boolean getIsFull() {
+        return isFull;
+    }
+
+    public void setIsFull(boolean isFull) {
+        this.isFull = isFull;
     }
 
     public Cat(String name, int appetite) {
