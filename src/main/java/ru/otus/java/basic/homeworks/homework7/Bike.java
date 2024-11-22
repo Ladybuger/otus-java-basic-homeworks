@@ -17,11 +17,11 @@ public class Bike implements Transport {
     @Override
     public boolean move(int distance, Terrain terrain) {
         if (terrain == Terrain.SWAMP) {
-            System.out.println("Велосипед " + name + "не может передвигаться по " + terrain);
+            System.out.println("Велосипед " + this.name + "не может передвигаться по " + terrain);
             return false;
         }
-        energy  -= distance;
-        System.out.println("Велосипед " + name + " проехал " + distance + " км по " + terrain + ". Энергии осталось " + energy);
+        this.energy  -= distance;
+        System.out.println("Велосипед " + this.name + " проехал " + distance + " км по " + terrain + ". Энергии осталось " + this.energy);
         return true;
     }
 

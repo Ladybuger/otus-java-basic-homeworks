@@ -17,17 +17,17 @@ public class Car implements Transport {
 
     @Override
     public boolean move(int distance, Terrain terrain) {
-        if (fuel < distance * FUEL_CONSUMPION) {
-            System.out.println("Автомобилю " + name + " недостаточно бензина в " + fuel + " литр, чтобы проехать " + distance + " км");
+        if (this.fuel < distance * FUEL_CONSUMPION) {
+            System.out.println("Автомобилю " + this.name + " недостаточно бензина в " + this.fuel + " литр, чтобы проехать " + distance + " км");
             return false;
         }
 
         if (terrain == Terrain.DENSE_FOREST || terrain == Terrain.SWAMP) {
-            System.out.println("Автомобиль " + name + " не может проехать по " + terrain);
+            System.out.println("Автомобиль " + this.name + " не может проехать по " + terrain);
             return false;
         }
-        fuel -= distance * FUEL_CONSUMPION;
-        System.out.println("Автомобиль " + name + " проехал " + distance + " км по " + terrain + ". Потратил " + Math.round(distance * FUEL_CONSUMPION) + "л бензина. Осталось " + fuel + "л.");
+        this.fuel -= distance * FUEL_CONSUMPION;
+        System.out.println("Автомобиль " + this.name + " проехал " + distance + " км по " + terrain + ". Потратил " + Math.round(distance * FUEL_CONSUMPION) + "л бензина. Осталось " + this.fuel + "л.");
         return true;
     }
 

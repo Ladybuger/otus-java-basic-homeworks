@@ -5,7 +5,7 @@ public class Application {
         Person person = new Person("Igor");
 
         Car car = new Car(30);
-        person.getOutTransport();
+        person.move(23, Terrain.PLAIN);
         person.getIntoTransport(car);
         person.move(23, Terrain.PLAIN);
         person.move(45, Terrain.SWAMP);

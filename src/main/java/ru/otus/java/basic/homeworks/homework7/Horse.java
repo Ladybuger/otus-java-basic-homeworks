@@ -17,11 +17,11 @@ public class Horse implements Transport {
     @Override
     public boolean move(int distance, Terrain terrain) {
         if (terrain == Terrain.SWAMP) {
-            System.out.println("Лошадь " + name + " не может передвигаться по " + terrain);
+            System.out.println("Лошадь " + this.name + " не может передвигаться по " + terrain);
             return false;
         }
-        force  -= distance;
-        System.out.println("Лошадь " + name + " прошла " + distance + "км по " + terrain + ". Энергии осталось " + force);
+        this.force -= distance;
+        System.out.println("Лошадь " + this.name + " прошла " + distance + "км по " + terrain + ". Энергии осталось " + this.name);
         return true;
     }
 

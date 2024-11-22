@@ -20,13 +20,14 @@ public class Person {
             this.currentTransport = null;
             return;
         }
-        System.out.println("У " + name + " нет транспорта для передвижения((((((");
+        System.out.println("У " + this.name + " нет транспорта для передвижения((((((");
     }
 
     public boolean move(int distance, Terrain terrain) {
         if (this.currentTransport != null) {
             return currentTransport.move(distance, terrain);
         }
+        System.out.println("У " + this.name + " нет транспорта для передвижения((((((. Прошел пешком " + distance + "км по " + terrain);
         return false;
     }
 

@@ -17,12 +17,12 @@ public class AllTerrainVehicle implements Transport {
 
     @Override
     public boolean move(int distance, Terrain terrain) {
-        if (fuel < distance * FUEL_CONSUMPION) {
-            System.out.println("Вездеходу " + name + " недостаточно бензина в " + fuel + " литр, чтобы проехать " + distance + " км");
+        if (this.fuel < distance * FUEL_CONSUMPION) {
+            System.out.println("Вездеходу " + this.name + " недостаточно бензина в " + this.fuel + " литр, чтобы проехать " + distance + " км");
             return false;
         }
-        fuel -= distance * FUEL_CONSUMPION;
-        System.out.println("Вездеход " + name + " проехал " + distance + " км по " + terrain + ". Потратил " + Math.round(distance * FUEL_CONSUMPION) + "л бензина. Осталось " + fuel + "л.");
+        this.fuel -= distance * FUEL_CONSUMPION;
+        System.out.println("Вездеход " + this.name + " проехал " + distance + " км по " + terrain + ". Потратил " + Math.round(distance * FUEL_CONSUMPION) + "л бензина. Осталось " + this.fuel + "л.");
         return true;
     }
 }
