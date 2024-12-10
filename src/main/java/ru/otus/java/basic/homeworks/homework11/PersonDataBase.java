@@ -4,7 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PersonDataBase {
-    private Map<Long, Person> personMap = new HashMap<>();
+    private Map<Long, Person> personMap;
+    private Map<Position, Boolean> managerPositions;
+
+    public PersonDataBase() {
+        personMap = new HashMap<>();
+        managerPositions = new HashMap<Position, Boolean>();
+        managerPositions.put(Position.MANAGER, true);
+        managerPositions.put(Position.DIRECTOR, true);
+        managerPositions.put(Position.BRANCH_DIRECTOR, true);
+        managerPositions.put(Position.SENIOR_MANAGER, true);
+    }
 
     public Person findById(Long id) {
         return personMap.get(id);
@@ -15,20 +25,12 @@ public class PersonDataBase {
     }
 
     public boolean isManager(Person person) {
-        if (person.position == Position.MANAGER || person.position == Position.DIRECTOR ||
-            person.position == Position.SENIOR_MANAGER || person.position == Position.BRANCH_DIRECTOR) {
-            return true;
-        }
-        return false;
+        return managerPositions.getOrDefault(person.position, false);
     }
 
     public boolean isEmployee(Long id) {
         Person person = personMap.get(id);
-        if (person.position != Position.MANAGER && person.position != Position.DIRECTOR &&
-            person.position != Position.SENIOR_MANAGER && person.position != Position.BRANCH_DIRECTOR) {
-            return true;
-        }
-        return false;
+        return !isManager(person);
     }
 
 }
