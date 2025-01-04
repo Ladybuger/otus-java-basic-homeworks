@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class InMemoryAuthenticatedProvider implements AuthenticatedProvider {
-
+/*
     public enum UserRole {
         USER,
         ADMIN
-    }
+    }*/
 
     private class User {
         private String login;

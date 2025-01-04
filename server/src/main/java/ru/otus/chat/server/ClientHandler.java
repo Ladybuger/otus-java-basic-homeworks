@@ -14,6 +14,7 @@ public class ClientHandler {
     private DataOutputStream out;
 
     private String username;
+    private UserRole role;
 
 
     public ClientHandler(Socket socket, Server server) throws IOException {
@@ -70,8 +71,18 @@ public class ClientHandler {
                             break;
                         }
                         if (words[0].startsWith("/kick")) {
-                            // Проверяем, является ли отправитель команды администратором
-                            if (getUsername().equals("admin")) {
+                            /*if (getUsername().equals("admin")) {
+                                String userToKick = words[1];
+                                if (server.getAuthenticatedProvider().kickUser(this, userToKick)) {
+                                    sendMsg("Пользователь " + userToKick + " был исключен из чата.");
+                                } else {
+                                    sendMsg("Пользователь " + userToKick + " не найден.");
+                                }
+                            } else {
+                                sendMsg("У вас нет прав для исключения пользователей из чата.");
+                            }*/
+
+                            if (getRole().equals(UserRole.ADMIN)) {
                                 String userToKick = words[1];
                                 if (server.getAuthenticatedProvider().kickUser(this, userToKick)) {
                                     sendMsg("Пользователь " + userToKick + " был исключен из чата.");
@@ -137,4 +148,13 @@ public class ClientHandler {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
+
 }
