@@ -71,6 +71,7 @@ public class InMemoryAuthenticatedProvider implements AuthenticatedProvider {
             return false;
         }
         clientHandler.setUsername(authUsername);
+        clientHandler.setRole(getRoleByLogin(login));
         server.subscribe(clientHandler);
         clientHandler.sendMsg("/authok " + authUsername);
 
@@ -117,6 +118,7 @@ public class InMemoryAuthenticatedProvider implements AuthenticatedProvider {
 
         users.add(new User(login, password, username, UserRole.USER));
         clientHandler.setUsername(username);
+        clientHandler.setRole(getRoleByLogin(login));
         server.subscribe(clientHandler);
         clientHandler.sendMsg("/regok " + username);
         return true;
