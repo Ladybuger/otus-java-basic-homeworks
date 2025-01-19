@@ -46,18 +46,6 @@ public class ClientHandler {
                                 break;
                             }
                         }
-                        // /reg login password username
-                        if (message.startsWith("/reg ")) {
-                            String[] element = message.split(" ");
-                            if (element.length != 4){
-                                sendMsg("Неверный формат команды /reg");
-                                continue;
-                            }
-                            if (server.getAuthenticatedProvider()
-                                    .registration(this, element[1], element[2], element[3])){
-                                break;
-                            }
-                        }
                     }
                 }
                 //цикл работы
@@ -69,29 +57,6 @@ public class ClientHandler {
                         if (words[0].startsWith("/exit")) {
                             sendMsg("/exitok");
                             break;
-                        }
-                        if (words[0].startsWith("/kick")) {
-                            /*if (getUsername().equals("admin")) {
-                                String userToKick = words[1];
-                                if (server.getAuthenticatedProvider().kickUser(this, userToKick)) {
-                                    sendMsg("Пользователь " + userToKick + " был исключен из чата.");
-                                } else {
-                                    sendMsg("Пользователь " + userToKick + " не найден.");
-                                }
-                            } else {
-                                sendMsg("У вас нет прав для исключения пользователей из чата.");
-                            }*/
-
-                            if (getRole().equals(UserRole.ADMIN)) {
-                                String userToKick = words[1];
-                                if (server.getAuthenticatedProvider().kickUser(this, userToKick)) {
-                                    sendMsg("Пользователь " + userToKick + " был исключен из чата.");
-                                } else {
-                                    sendMsg("Пользователь " + userToKick + " не найден.");
-                                }
-                            } else {
-                                sendMsg("У вас нет прав для исключения пользователей из чата.");
-                            }
                         }
                         if (words[0].startsWith("/w")) {
                             server.personaMessage(words[1], "private message " + username + " : " + words[2]);
@@ -153,7 +118,7 @@ public class ClientHandler {
         return role;
     }
 
-    public void setRole(UserRole role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
